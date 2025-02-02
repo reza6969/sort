@@ -36,3 +36,11 @@ so to do so, set up just a little bit of additional tooling to get started
 back over to our terminal one more time. And then over here we can do npm start like so.
 
 # npm start
+
+quick minder, we want to write some extremely reusable code to sort some different data structures.
+so in this section, I want to tell you a little bit more about the basic sorting algorithm we are going to use
+now, I'm going to be honest with you, we're going to use one of the simplest sorting algorithms around because honestly, the algorithm implementation here is really not that impoortant.
+
+# what's much more important
+
+understand how we're going to reuse this code as much as possible
