@@ -44,3 +44,12 @@ now, I'm going to be honest with you, we're going to use one of the simplest sor
 # what's much more important
 
 understand how we're going to reuse this code as much as possible
+
+let's write out an implementation of Bubble Sort
+To work with a very simple array of numbers
+So we're not going to worry about any code re-use or anythings like that just yet.
+let's just get an implementation put together
+I'm going to replace it with a simple class definition
+
+And the idea here is that this is going to be a class that's going to take some collection of data and sort all the elements inside of it.
+So I'm going to say that this sort of calss is going to have a property that I'll call like collection
