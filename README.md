@@ -53,3 +53,25 @@ I'm going to replace it with a simple class definition
 
 And the idea here is that this is going to be a class that's going to take some collection of data and sort all the elements inside of it.
 So I'm going to say that this sort of calss is going to have a property that I'll call like collection
+
+The error message you're encountering indicates that the TypeScript compiler (tsc) is not recognized in your command line environment. This typically means that either TypeScript is not installed, or the installation path is not included in your system's PATH environment variable. Here are steps to troubleshoot and resolve the issue:
+
+1. Check if TypeScript is Installed
+
+First, check if TypeScript is installed globally. You can do this by running:
+
+# npm list -g typescript
+
+If TypeScript is not listed, you need to install it.
+
+2. Install TypeScript Globally
+
+If TypeScript is not installed, you can install it globally using npm (Node Package Manager). Run the following command:
+
+# npm install -g typescript
+
+3. Verify Installation
+
+After installation, verify that tsc is available by running:
+
+# tsc -v
