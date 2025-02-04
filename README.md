@@ -75,3 +75,43 @@ If TypeScript is not installed, you can install it globally using npm (Node Pack
 After installation, verify that tsc is available by running:
 
 # tsc -v
+
+And we're going to start to discuss how we're going to start to abstract out some of logic inside of here and get this algorithm to work for all these different data structures that we want it to work with.
+
+we need to do a very diffrent method of comparison and need tp do a very diffrent method of swapping.
+going to fix our code to work properly with a string of characters, just as well as with an array of numbers
+
+to first take a bad approach to solving this issue.
+
+the reason a lot of bad approaches here in kind of like the initial take on all these problems is because i think that a lot of these bad approaches that we're looking at are some ways of sloving things that a new engineer might decide to try.
+
+How are we going to somehow convince typescript to allow us to run this code right here?
+So to so so, we're going to use something called a type gurd.
+A type gurd is going to be a check on the type of this collection.
+once we run a type gurd, we are essentially going to clarify the type of value we are woking with.
+By clarifying the type we are working with.
+it will restore access to all the diffrent properties associated with this collection with an array of numbers, and we will not have to be limited to just the properties that are common between a string and a number
+
+two type guards
+1- typeof
+Narrow type of a value to a primitive type
+
+that syntax we used in those two type guards was just a little bit diffrent
+Any time that we want to setup a type guard for a primitive value, like a number string boolean or a symbol
+
+@ typeof []
+
+but this is not going to function as a type guard.
+typeScript will only allow you to restore access using the syntax right here for a string, a boolean and number.
+
+2- instanceof
+Narrow downevery other type of value
+
+so now the other from of syntax we use in a type guard is any time they want to narrow down any other type of value.
+so if we are not trying to restore access to a numbe, string or boolean, we're going to instead use that instance of syntax.
+
+if you and I define a custome class, let's say, how about Sorter?
+
+this.collection instanceof Sorter
+
+So in other words, we would put a reference to the constructor function right there to use a type Guard with anything that is not a number, a string or a boolean.
