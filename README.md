@@ -115,3 +115,9 @@ if you and I define a custome class, let's say, how about Sorter?
 this.collection instanceof Sorter
 
 So in other words, we would put a reference to the constructor function right there to use a type Guard with anything that is not a number, a string or a boolean.
+
+# Why is This Bad ?
+
+Remember, type guards are essentially very intelligent snippets of code. TypeScript really understand what is going on here. typeScript understands that if we get into this is it statement, then this.collection must be an arrray and we are going to restore access to all the properties of an array on this collection.
+
+if we ever want to add in some additional things to be stored here,we would have to go back over to our class sorter and add them into this union.
