@@ -121,3 +121,18 @@ So in other words, we would put a reference to the constructor function right th
 Remember, type guards are essentially very intelligent snippets of code. TypeScript really understand what is going on here. typeScript understands that if we get into this is it statement, then this.collection must be an arrray and we are going to restore access to all the properties of an array on this collection.
 
 if we ever want to add in some additional things to be stored here,we would have to go back over to our class sorter and add them into this union.
+
+# Good Solution
+
+once agian, we're going to fix it eventually using interface.  
+But before we just dive directly into the interface based solution, we're going to do a little bit of an intermediate refactor. so the intermediate refactor is going to help you understand the genral strategy we're going to use to fix this problem
+
+to everything around this bubble sort algorithm and the whole reason that it doesn't work that well with these very differnt types is that we've got two operations that are going to have to be customized depending upon
+
+the entire key to all this stuff is that the comparison and the swapping has to be customized based on the type of data we are working with. so we are going to do exactly that.
+
+we are going to try to extract that comparison logic into a helper function in a different class. And then we're also going to extract the swapping logic into a different class as well.
+
+So our sorer is no longer going to contain a direct reference to an array of numbers. instead, we're going to have our sorter have a direct reference to some new thing that we're going to create called a numbers collection.
+
+The numbers collection is going to hold a reference to the actual array of numbers that we want to sort on some data property. Now, the name data here is not special. we could have called this like, you know, numbers two sort or something like that.
