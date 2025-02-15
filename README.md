@@ -136,3 +136,24 @@ we are going to try to extract that comparison logic into a helper function in a
 So our sorer is no longer going to contain a direct reference to an array of numbers. instead, we're going to have our sorter have a direct reference to some new thing that we're going to create called a numbers collection.
 
 The numbers collection is going to hold a reference to the actual array of numbers that we want to sort on some data property. Now, the name data here is not special. we could have called this like, you know, numbers two sort or something like that.
+
+we need to make sure that slaughter can take other types of collections as well, like a collection of characters, a string or a length list or whatever else. So lats we have to do, how do we get this type right here to go away?
+
+it has our sorter class at the top of the file. we are going to define an interface and this interface is going to provide some instructions to other classes on our project. on how they can be eligible for sorting. So the big question here is what are those instructions exactly? How do we tell every other class inside of our project how we can sort them?
+
+So you and I are going to define some instructions at the top of the file that say, if you just give us a length property, a compare method and a swap method, you can be sorted no matter what type of collection you are.
+
+you can be anything possible as long as you define the length property, the compare function and the swap function. That's how we get some amazing code reuse.
+The final reveal here is that this is the last sorting algorithm you ever have to write, as long as you can define those three properties.
+
+This is extremely significant because we don't have to memorize the actual sorting algorithm anymore. we only have to memorize. okey, define, compare, define swap, get the length.
+
+Typescript is great because we can make these interfaces to describe the structure of an object or something like that. And that's technically true, but that is like really palying down the useful enough usefulness of interfaces.
+
+You interface are useful not because we can describe a type, it's because we can set up a contract between one class and another class and say, Hey, if you do X, Y, Z, imagine all the functionality I'm going to give you.
+
+something that's kind of interesting to keep in mind is that the interface only specifies the property names and respective types of some other class or some other object.
+
+So in other words, we can actually define a class that has a compare function with these arguments and that return value and a swap method with these arguments that return value.
+
+it just makes sure that these methods exist and have the appropriate types. just something important to keep in mind there.
