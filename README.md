@@ -157,3 +157,51 @@ something that's kind of interesting to keep in mind is that the interface only 
 So in other words, we can actually define a class that has a compare function with these arguments and that return value and a swap method with these arguments that return value.
 
 it just makes sure that these methods exist and have the appropriate types. just something important to keep in mind there.
+
+So what's the issue?
+well, let's be honest here. The code we have is awesome. But there's one big problem.
+
+Every time that we want, we want to sort a collection. We have to create the collection. we then have to create a new thing called disorder, feed in the collection and then call sorter sort. i don't really seeing any programming language that quite as laborious as this is right here to sort a simple collection of records. what would be way more obvious for sorting than this and a lot more usable is if we could simply create some colectiion like let's say numbers collection right here, and then call numbers collection sort. That's way more obvious to other engineers. I think other engineers would understand like yeah, of course we call numbers collection sort. It is a method on the collection as opposed to us having to create that separate class. So what we have right now is good, but I don't think it's ideal. i think this is the kind of interaction we want right here. So like I said, just one more little.
+
+We are just discussing how it's really awkward to have to ccreate an instance of disorder in order in order to sort any given collection. So in this video, we're going to figure out how we can add a sort method to our there different collections. And of course, we want to make sure that each of these sort methods are still going to have some amount of code reuse. So we don't want to have to re-implement sort every single time.
+So I think that there's probably going to be a pretty clear direction to move to make this happen.
+I think that a pretty clear solution would be to use classic inheritance.
+
+Inheritance is where we have diffrent classes and we want to some how share code between them.
+So in this case, we want to make this sort method available on the numbers collection, on characters in on length list.
+So we can kind of imagine that we will copy paste all the methods of sauder down to these classes.
+Remember there is no actual like copy paste of methods going on. This is just a convenient way to imagine this relationship.
+So now we would refer to Sorter as the parent class or the superclass of numbers, characters and linked list. So we are using Sorter to extend these three child classes.
+So if we did this, we would then have a sort method on each of these different classes. There's only one implementation of sort and that's defined back inside of Sorter.
+
+Abstract Classes
+Can't be used to create an object directly
+
+# Only used as a parent class
+
+So whenever we create an abstract class, it means there are going to be some set of methods on it that we want to make available to other classes for inheritance or essentially to copy paste those methods somewhere else.
+Now, of all those methods some of them can be real implementations.
+So in an abstract class that is ok, we can have references inside of some implemented methods to other methods that don't actually exit yet.
+The only requirement is that we have to write out the names of those methods and their signature types, like different arguments they take and the diffrent types they return inside of the abstract class body.
+so in other words, like right here, we just have to write out a listing of all the methods and types for them that we expect to eventually exist inside of Sorter. Now when I say eventually exist, by that I mean those kind of stubs of sorts that we're going to write out. we're essentially saying that any class that extends our abstract class has to promise to implement those methods.So child classes have to promise to implement the methods that we said will eventually exist in the future.
+
+Can contain real implementation for some methods
+The implemented methods can refer to other methods that don't actually exist yet( we still have to provide names and types for the un-implemented methods)
+Can make child classes promise to implement some other method
+
+We're going to turn sorter into an abstract class. It is going to have a real definition for sort or a real implementation.
+Abstract class will then be used as a parent class to characters collection. So again, we imagine that we are copy pasting sort over. TypeScript is then going to try to evaluate sorter in isolation. Then inside there, inside the abstract class, we are going to provide stubs or some like tittle information about the length, compare and swap methods.
+So we're going to tell TypeScript that these are going to eventually exist. We never expect to create an instance of Sorter. We just want to borrow one method form it.
+
+So We are making the child class promise to implement those diffrent methods.
+
+We're going to turn sorter into an abstract class.
+
+# talk about some of the differences between interfaces and abstract classes
+
+So just to be clear, we don't actually need the interface anymore.Let's do a quick compare and contrast, however, of interface versus abstract classes.
+
+First of, an interface allows us to easily set up a contract between diffrent classes. Remember, this is when we originally had this order. We said, Hey, if anything inside of our application want it to be sorted, all it had to do was implement our sortable interface. And so that allowed us to get differnt classes to work together without a direct dependency betweemn then.
+And so interface generally promte very loose coupling.
+In general, I recommend you try looking for interfaces any time that we have diffrent objects that we have different objects that want to work together.
+And so any time we are working with a very dissimilar objects or objects with very different purposes, that is a very good time to reach for an interface.
